@@ -1,0 +1,23 @@
+// Issue 57a: Fix "Continue reading" button contrast
+// Global .button { background: #F58220; color: #fff } — white on #F58220 = 2.54:1 (fails 4.5:1)
+// white on #A34700 = 5.65:1 ✓
+.button {
+  background: #A34700;
+
+  &:hover,
+  &:focus {
+    background: #7A3200; // white on #7A3200 = 9.21:1 ✓
+  }
+}
+
+// Issue 57c: Blog title link contrast
+// Global a { color: #36A8FF } on white = 2.45:1 (fails 4.5:1)
+// #005FCC on white = 5.56:1 ✓
+h3 a {
+  color: #005FCC;
+
+  &:hover,
+  &:focus {
+    color: #003D99; // 8.97:1 on white ✓
+  }
+}

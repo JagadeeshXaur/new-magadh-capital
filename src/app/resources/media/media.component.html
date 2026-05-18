@@ -1,44 +1,57 @@
    <div class="card card-body border-0 p-0">
                     <div class="row spacing-40">
                         <div class="post-content">
-                            <h4>Some of the articles and television appearance
-                                that we have authored-</h4>
+                            <h2 class="h4 fw-normal text-muted">Some of the articles and television appearances
+                                that we have authored</h2>
 
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist"
+                                aria-label="Media Content Sections"
+                                (keydown)="onMediaTablistKeydown($event)">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active"
-                                        id="newsundermedia-tab"
-                                        data-bs-toggle="tab"
-                                        data-bs-target="#newsundermedia"
-                                        type="button" role="tab"
-                                        aria-controls="newsundermedia"
-                                        aria-selected="true"
+                                    <button
+                                        class="nav-link"
+                                        [class.active]="mediaActiveTab === 'articles'"
+                                        id="media-tab-articles"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="media-panel-articles"
+                                        [attr.aria-selected]="mediaActiveTab === 'articles'"
+                                        [attr.tabindex]="mediaActiveTab === 'articles' ? 0 : -1"
+                                        (click)="setMediaTab('articles')"
                                         style="text-transform: uppercase;">Article
                                         Authored</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="etnow-tab"
-                                        data-bs-toggle="tab"
-                                        data-bs-target="#etnow" type="button"
-                                        role="tab" aria-controls="etnow"
-                                        aria-selected="false"
+                                    <button
+                                        class="nav-link"
+                                        [class.active]="mediaActiveTab === 'tv'"
+                                        id="media-tab-tv"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="media-panel-tv"
+                                        [attr.aria-selected]="mediaActiveTab === 'tv'"
+                                        [attr.tabindex]="mediaActiveTab === 'tv' ? 0 : -1"
+                                        (click)="setMediaTab('tv')"
                                         style="text-transform: uppercase;">TV
                                         Appearences</button>
                                 </li>
 
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active"
-                                    id="newsundermedia" role="tabpanel"
-                                    aria-labelledby="newsundermedia-tab">
+                                <div
+                                    id="media-panel-articles"
+                                    role="tabpanel"
+                                    aria-labelledby="media-tab-articles"
+                                    tabindex="0"
+                                    [hidden]="mediaActiveTab !== 'articles'">
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-1"><a
                                                     href="https://economictimes.indiatimes.com/markets/expert-view/theres-no-point-in-trying-to-outpace-market-just-stay-invested-vipul-prasad/articleshow/106544009.cms?from=mdr"
-                                                    target="_blank">There’s no
+                                                    target="_blank">There's no
                                                     point in trying to outpace
                                                     market; just stay invested
-                                                </a></h2>
+                                                </a></h3>
                                             <div class="publish-date">Last
                                                 Updated: 04 January 2024, 3:49
                                                 PM IST | Source:
@@ -46,7 +59,7 @@
                                              <div style="height: 2px; width: 5%;" class="bg-secondary mb-2"></div>
                                             <p>On the markets, we remained
                                                 constructive from a
-                                                one-to-two-years’ perspective.
+                                                one-to-two-years' perspective.
                                                 Shorter-term, obviously, it is
                                                 very difficult to take a call
                                                 and also it is futile to take a
@@ -60,19 +73,21 @@
                                                 quite good. </p>
                                             <a class="button"
                                                 href="https://economictimes.indiatimes.com/markets/expert-view/theres-no-point-in-trying-to-outpace-market-just-stay-invested-vipul-prasad/articleshow/106544009.cms?from=mdr"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-1"
+                                                aria-labelledby="media-article-1 continue-reading-media-1">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-2"><a
                                                     href="https://economictimes.indiatimes.com/markets/expert-view/overweight-on-defence-very-positive-on-banks-vipul-prasad/articleshow/99655880.cms?from=mdr"
                                                     target="_blank">Overweight
                                                     on defence, very positive on
                                                     banks
-                                                </a></h2>
+                                                </a></h3>
                                             <div class="publish-date">Last
                                                 Updated : 21 April 2023, 09:17
                                                 AM IST | Source:
@@ -89,19 +104,21 @@
                                                 market and the US macro.</p>
                                             <a class="button"
                                                 href="https://economictimes.indiatimes.com/markets/expert-view/overweight-on-defence-very-positive-on-banks-vipul-prasad/articleshow/99655880.cms?from=mdr"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-2"
+                                                aria-labelledby="media-article-2 continue-reading-media-2">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-3"><a
                                                     href="https://www.livemint.com/money/personal-finance/efficient-market-hypothesis-and-its-implications-11659986580289.html"
                                                     target="_blank">Efficient
                                                     market hypothesis and its
                                                     implications
-                                                </a></h2>
+                                                </a></h3>
                                             <div class="publish-date">Last
                                                 updated : 09 August 2022, 06:06
                                                 AM IST | Source:
@@ -116,23 +133,25 @@
                                                 stock immediately. As per this
                                                 theory, every information about
                                                 a stock as on a particular date
-                                                gets reflected in the stock’s
+                                                gets reflected in the stock's
                                                 current price.</p>
                                             <a class="button"
                                                 href="https://www.livemint.com/money/personal-finance/efficient-market-hypothesis-and-its-implications-11659986580289.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-3"
+                                                aria-labelledby="media-article-3 continue-reading-media-3">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-4"><a
                                                     href="https://www.livemint.com/money/personal-finance/heres-the-art-of-selling-your-stocks-at-the-right-time-11655919403429.html"
-                                                    target="_blank">Here’s the
+                                                    target="_blank">Here's the
                                                     art of selling your stocks
                                                     at the right time
-                                                </a></h2>
+                                                </a></h3>
                                             <div class="publish-date">Last
                                                 Updated :23 Jun 2022, 12:23 PM
                                                 IST | Source: livemint.com</div>
@@ -151,19 +170,21 @@
                                                 calls. </p>
                                             <a class="button"
                                                 href="https://www.livemint.com/money/personal-finance/why-do-different-stocks-have-different-price-to-sales-multiples-11652373626865.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-4"
+                                                aria-labelledby="media-article-4 continue-reading-media-4">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-5"><a
                                                     href="https://www.livemint.com/money/personal-finance/why-do-different-stocks-have-different-price-to-sales-multiples-11652373626865.html"
                                                     target="_blank">Why do
                                                     different stocks have
                                                     different Price-to-Sales
                                                     multiples?
-                                                </a></h2>
+                                                </a></h3>
                                             <div class="publish-date">Last
                                                 Updated :12 May 2022, 10:18 PM
                                                 IST | Source: livemint.com</div>
@@ -186,18 +207,20 @@
                                                 them. </p>
                                             <a class="button"
                                                 href="https://www.livemint.com/money/personal-finance/why-do-different-stocks-have-different-price-to-sales-multiples-11652373626865.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-5"
+                                                aria-labelledby="media-article-5 continue-reading-media-5">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-6"><a
                                                     href="https://www.financialexpress.com/opinion/strong-opinions-held-loosely-are-key-for-investors/1442648/"
                                                     target="_blank">Strong
                                                     opinions, held loosely, are
-                                                    key for investors</a></h2>
+                                                    key for investors</a></h3>
                                             <div class="publish-date">Financial
                                                 Express | New Delhi | Published:
                                                 January 14, 2019 5:07:20
@@ -209,19 +232,21 @@
                                                 change</p>
                                             <a class="button"
                                                 href="https://www.financialexpress.com/opinion/strong-opinions-held-loosely-are-key-for-investors/1442648/"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-6"
+                                                aria-labelledby="media-article-6 continue-reading-media-6">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-7"><a
                                                     href="https://www.moneycontrol.com/news/india/why-poll-manifestos-in-india-should-be-measurable-accountable-3745821.html"
                                                     target="_blank">Why poll
                                                     manifestos in India should
                                                     be measurable,
-                                                    accountable</a></h2>
+                                                    accountable</a></h3>
                                             <div class="publish-date">Last
                                                 Updated : Apr 02, 2019 12:10 PM
                                                 IST | Source:
@@ -230,23 +255,25 @@
                                             <p>For voters to be steered by
                                                 facts, it is important to
                                                 provide them with a framework to
-                                                assess the earlier government’s
+                                                assess the earlier government's
                                                 performance.</p>
                                             <a class="button"
                                                 href="https://www.moneycontrol.com/news/india/why-poll-manifestos-in-india-should-be-measurable-accountable-3745821.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-7"
+                                                aria-labelledby="media-article-7 continue-reading-media-7">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-8"><a
                                                     href="https://www.moneycontrol.com/news/business/use-disinvestment-proceeds-to-strengthen-human-development-index-3455661.html"
                                                     target="_blank">Use
                                                     disinvestment proceeds to
                                                     strengthen human development
-                                                    index</a></h2>
+                                                    index</a></h3>
                                             <div class="publish-date">Last
                                                 Updated : Jan 30, 2019 02:59 PM
                                                 IST | Source:
@@ -261,18 +288,20 @@
                                                 programmes</p>
                                             <a class="button"
                                                 href="https://www.moneycontrol.com/news/business/use-disinvestment-proceeds-to-strengthen-human-development-index-3455661.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-8"
+                                                aria-labelledby="media-article-8 continue-reading-media-8">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-9"><a
                                                     href="https://www.moneycontrol.com/news/business/divestment-a-must-to-revive-psus-and-indias-health-3451411.html"
                                                     target="_blank">Divestment
                                                     -- a must to revive PSUs,
-                                                    and India's health</a></h2>
+                                                    and India's health</a></h3>
                                             <div class="publish-date">Last
                                                 Updated : Jan 30, 2019 02:19 PM
                                                 IST | Source:
@@ -287,19 +316,21 @@
                                                 programs.</p>
                                             <a class="button"
                                                 href="https://www.moneycontrol.com/news/business/divestment-a-must-to-revive-psus-and-indias-health-3451411.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-9"
+                                                aria-labelledby="media-article-9 continue-reading-media-9">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-10"><a
                                                     href="https://www.financialexpress.com/opinion/ubi-can-be-a-brahmastra-for-modi-government/1451874/"
                                                     target="_blank">Universal
                                                     basic income: A potential
                                                     Brahmastra for Modi
-                                                    government</a></h2>
+                                                    government</a></h3>
                                             <div class="publish-date">Financial
                                                 Express | Updated: January 23,
                                                 2019 7:17:58 AM</div>
@@ -311,19 +342,21 @@
                                                 25,000 crore.</p>
                                             <a class="button"
                                                 href="https://www.financialexpress.com/opinion/ubi-can-be-a-brahmastra-for-modi-government/1451874/"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-10"
+                                                aria-labelledby="media-article-10 continue-reading-media-10">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-11"><a
                                                     href="https://www.moneycontrol.com/news/business/personal-finance/active-laziness-is-good-for-investment-dont-get-swayed-by-big-returns-3256521.html"
                                                     target="_blank">'Active'
                                                     laziness is good for
                                                     investment, don't get swayed
-                                                    by 'big' returns</a></h2>
+                                                    by 'big' returns</a></h3>
                                             <div class="publish-date">Last
                                                 Updated : Dec 05, 2018 04:18 PM
                                                 IST | Source:
@@ -336,18 +369,20 @@
                                                 markets are volatile.</p>
                                             <a class="button"
                                                 href="https://www.moneycontrol.com/news/business/personal-finance/active-laziness-is-good-for-investment-dont-get-swayed-by-big-returns-3256521.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-11"
+                                                aria-labelledby="media-article-11 continue-reading-media-11">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-12"><a
                                                     href="https://www.financialexpress.com/opinion/the-policymaker-versus-the-promoter/1294239/"
                                                     target="_blank">The
                                                     policymaker versus the
-                                                    promoter</a></h2>
+                                                    promoter</a></h3>
                                             <div class="publish-date">Financial
                                                 Express | New Delhi | Published:
                                                 August 28, 2018 3:25:50 AM
@@ -357,28 +392,30 @@
                                                 equity holder in PSU
                                                 banks—appears to be warming up
                                                 to the idea of waiver for the
-                                                power sector from RBI’s new
+                                                power sector from RBI's new
                                                 framework. As a promoter, the
                                                 government cannot be faulted for
                                                 trying to protect its financial
                                                 interests by maximising PSU
-                                                banks’ loan recovery.</p>
+                                                banks' loan recovery.</p>
                                             <a class="button"
                                                 href="https://www.financialexpress.com/opinion/the-policymaker-versus-the-promoter/1294239/"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-12"
+                                                aria-labelledby="media-article-12 continue-reading-media-12">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-13"><a
                                                     href="https://www.financialexpress.com/opinion/how-long-term-investors-can-get-healthy-returns-by-sticking-to-bottom-up-fundamental-style/1211271/"
                                                     target="_blank">How
                                                     long-term investors can get
                                                     healthy returns by sticking
                                                     to bottom-up fundamental
-                                                    style</a></h2>
+                                                    style</a></h3>
                                             <div class="publish-date">Financial
                                                 Express | Published: June 19,
                                                 2018 3:18:50 AM</div>
@@ -392,18 +429,20 @@
                                                 holdings in equity markets.</p>
                                             <a class="button"
                                                 href="https://www.financialexpress.com/opinion/how-long-term-investors-can-get-healthy-returns-by-sticking-to-bottom-up-fundamental-style/1211271/"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-13"
+                                                aria-labelledby="media-article-13 continue-reading-media-13">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-14"><a
                                                     href="https://www.financialexpress.com/opinion/power-oversupply-the-genesis-and-the-way-out/1173447/"
                                                     target="_blank">Power
                                                     oversupply: The genesis and
-                                                    the way out</a></h2>
+                                                    the way out</a></h3>
                                             <div class="publish-date">Financial
                                                 Express | Published: May 19,
                                                 2018 3:00:27 AM</div>
@@ -417,18 +456,20 @@
                                                 can boost productivity.</p>
                                             <a class="button"
                                                 href="https://www.financialexpress.com/opinion/power-oversupply-the-genesis-and-the-way-out/1173447/"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-14"
+                                                aria-labelledby="media-article-14 continue-reading-media-14">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-15"><a
                                                     href="https://www.livemint.com/Opinion/MC4Ozr0OlcuB7sNiIuUQQJ/Indian-Railways-Can-the-elephant-dance.html"
                                                     target="_blank">Indian
                                                     Railways: Can the elephant
-                                                    dance?</a></h2>
+                                                    dance?</a></h3>
                                             <div class="publish-date">Live Mint
                                                 | Updated: 15 Mar 2018, 03:03 AM
                                                 IST</div>
@@ -440,7 +481,9 @@
                                                 manpower base</p>
                                             <a class="button"
                                                 href="https://www.livemint.com/Opinion/MC4Ozr0OlcuB7sNiIuUQQJ/Indian-Railways-Can-the-elephant-dance.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-15"
+                                                aria-labelledby="media-article-15 continue-reading-media-15">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
@@ -449,16 +492,16 @@
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-16"><a
                                                     href="http://www.livemint.com/Opinion/Olu22hrFLtQgXASh7Dp0TJ/Bull-market-lessons-for-investors.html"
                                                     target="_blank">Bull market
                                                     lessons for
-                                                    investors</a></h2>
+                                                    investors</a></h3>
                                             <div class="publish-date">livemint |
                                                 Dec 11, 2017</div>
                                              <div style="height: 2px; width: 5%;" class="bg-secondary mb-2"></div>
                                             <p>Over 30 years ago, on 19 October
-                                                1987 (dubbed “Black Monday”),
+                                                1987 (dubbed "Black Monday"),
                                                 the US stock market benchmark
                                                 Dow Jones Industrial Average
                                                 (DJIA) index nosedived by
@@ -469,16 +512,18 @@
                                                 properly.</p>
                                             <a class="button"
                                                 href="http://www.livemint.com/Opinion/Olu22hrFLtQgXASh7Dp0TJ/Bull-market-lessons-for-investors.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-16"
+                                                aria-labelledby="media-article-16 continue-reading-media-16">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-17"><a
                                                     href="http://www.livemint.com/Opinion/tcQIG6knmQrD0Uoq2fp1BM/The-curious-case-of-coal-cess.html"
                                                     target="_blank">The curious
-                                                    case of coal cess</a></h2>
+                                                    case of coal cess</a></h3>
                                             <div class="publish-date">livemint |
                                                 Nov 14, 2017</div>
                                              <div style="height: 2px; width: 5%;" class="bg-secondary mb-2"></div>
@@ -495,17 +540,19 @@
                                                 stands at around 2,500.</p>
                                             <a class="button"
                                                 href="http://www.livemint.com/Opinion/tcQIG6knmQrD0Uoq2fp1BM/The-curious-case-of-coal-cess.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-17"
+                                                aria-labelledby="media-article-17 continue-reading-media-17">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-article-18"><a
                                                     href="http://www.livemint.com/Opinion/t5iCGyvHTGbxDrvd2Hq6xI/Speculative-bubbles-dont-grow-on-trees.html"
                                                     target="_blank">Speculative
-                                                    bubbles don’t grow on
-                                                    trees</a></h2>
+                                                    bubbles don't grow on
+                                                    trees</a></h3>
                                             <div class="publish-date">livemint |
                                                 Oct 24, 2017</div>
                                              <div style="height: 2px; width: 5%;" class="bg-secondary mb-2"></div>
@@ -516,7 +563,7 @@
                                                 bear phase is lurking ahead. The
                                                 Sensex has delivered a 22%
                                                 return year-to-date, pushing the
-                                                market’s trailing P/E
+                                                market's trailing P/E
                                                 (price/earnings) multiple
                                                 meaningfully above the
                                                 historical average, and
@@ -525,22 +572,28 @@
                                                 bubble territory.</p>
                                             <a class="button"
                                                 href="http://www.livemint.com/Opinion/t5iCGyvHTGbxDrvd2Hq6xI/Speculative-bubbles-dont-grow-on-trees.html"
-                                                target="_blank">Continue reading
+                                                target="_blank"
+                                                id="continue-reading-media-18"
+                                                aria-labelledby="media-article-18 continue-reading-media-18">Continue reading
                                                 →</a>
                                         </div>
                                     </div>
 
                                  </div>
-                                <div class="tab-pane fade" id="etnow"
-                                    role="tabpanel" aria-labelledby="etnow-tab">
+                                <div
+                                    id="media-panel-tv"
+                                    role="tabpanel"
+                                    aria-labelledby="media-tab-tv"
+                                    tabindex="0"
+                                    [hidden]="mediaActiveTab !== 'tv'">
 
                                     <!-- et now content starts here -->
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a></a>VIPUL PRASAD OF MAGADH
-                                                CAITAL SPEAKS ON PERFORMANCE OF
+                                            <h3 class="h5" id="media-tv-1"><a></a>VIPUL PRASAD OF MAGADH
+                                                CAPITAL SPEAKS ON PERFORMANCE OF
                                                 BANKS AND VIEWS ON HIGHER
-                                                VALUATIONS</h2>
+                                                VALUATIONS</h3>
                                             <div class="publish-date">4 Jan 2024
                                                 | ENGLISH | MONEY & FINANCES|
                                                 GENERAL AUDIENCE</div>
@@ -553,21 +606,23 @@
                                                 indicating sustainability. </p>
                                             <a class="button"
                                                 href="https://www.youtube.com/watch?v=N9dNbvrcHOM"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-1"
+                                                aria-labelledby="media-tv-1 watch-video-media-1">Watch video at
                                                 source →</a></div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a></a>VIPUL PRASAD OF MAGADH
+                                            <h3 class="h5" id="media-tv-2"><a></a>VIPUL PRASAD OF MAGADH
                                                 CAPITAL SPEAKS ON RATE HIKE
                                                 CYCLE AND SPOTTING OPPORTUNITIES
-                                                IN VOLITILE MARKETS. </h2>
+                                                IN VOLATILE MARKETS.</h3>
                                             <div class="publish-date">20 April
                                                 2023 | ENGLISH | MONEY &
                                                 FINANCES| GENERAL AUDIENCE</div>
                                              <div style="height: 2px; width: 5%;" class="bg-secondary mb-2"></div>
-                                            <p>“Market valuations have retracted
+                                            <p>"Market valuations have retracted
                                                 to historical average levels.
                                                 Consolidation phase may continue
                                                 for another six months. Fed may
@@ -579,17 +634,19 @@
                                                 Prasad </p>
                                             <a class="button"
                                                 href="https://www.youtube.com/watch?app=desktop&v=OkZ2KvxmYZ4"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-2"
+                                                aria-labelledby="media-tv-2 watch-video-media-2">Watch video at
                                                 source →</a></div>
                                     </div>
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-tv-3"><a
                                                     href="https://www.timesnownews.com/videos/news/india/vipul-prasad-of-magadh-capital-llp-speaks-on-the-crude-oil-cool-off/15783"
                                                     target="_blank"></a>VIPUL
                                                 PRASAD OF MAGADH CAPITAL Trade
                                                 War Spills To Currencies, Spooks
-                                                Investors</h2>
+                                                Investors</h3>
                                             <div class="publish-date">5 August
                                                 2019 | ENGLISH | MONEY &
                                                 FINANCES | GENERAL
@@ -601,17 +658,19 @@
                                                 of Magadh Capital. </p>
                                             <a class="button"
                                                 href="https://www.youtube.com/watch?v=IJJATUHlUB4"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-3"
+                                                aria-labelledby="media-tv-3 watch-video-media-3">Watch video at
                                                 source →</a></div>
                                     </div>
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-tv-4"><a
                                                     href="https://www.timesnownews.com/videos/et-now/markets/vipul-prasad-of-magadh-capital-llp-shares-his-fundamental-take-on-market-re-rating/27479"
                                                     target="_blank"></a>Vipul
                                                 Prasad of Magadh Capital LLP
                                                 shares his fundamental take on
-                                                market re-rating</h2>
+                                                market re-rating</h3>
                                             <div class="publish-date">29 MARCH
                                                 2019 | ENGLISH | MONEY &
                                                 FINANCES | GENERAL
@@ -625,19 +684,21 @@
                                                 markets.</p>
                                             <a class="button"
                                                 href="https://www.timesnownews.com/videos/et-now/markets/vipul-prasad-of-magadh-capital-llp-shares-his-fundamental-take-on-market-re-rating/27479"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-4"
+                                                aria-labelledby="media-tv-4 watch-video-media-4">Watch video at
                                                 source →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-tv-5"><a
                                                     href="https://www.timesnownews.com/videos/et-now/companies/vipul-prasad-of-magadh-capital-speaks-on-5-stocks-he-likes-the-most-in-banking-space/24900"
                                                     target="_blank"></a>Vipul
                                                 Prasad of Magadh Capital speaks
                                                 on 5 stocks he likes the most in
-                                                banking space</h2>
+                                                banking space</h3>
                                             <div class="publish-date">01 MARCH
                                                 2019 | ENGLISH | MONEY &
                                                 FINANCES | GENERAL
@@ -652,19 +713,21 @@
                                                 Now.</p>
                                             <a class="button"
                                                 href="https://www.timesnownews.com/videos/et-now/companies/vipul-prasad-of-magadh-capital-speaks-on-5-stocks-he-likes-the-most-in-banking-space/24900"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-5"
+                                                aria-labelledby="media-tv-5 watch-video-media-5">Watch video at
                                                 source →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-tv-6"><a
                                                     href="https://www.timesnownews.com/videos/et-now/personal-finance-investment/vipul-prasad-of-magadh-capital-llp-speaks-on-stocks-to-invest-in-fy-19-20/21453"
                                                     target="_blank"></a>Vipul
                                                 Prasad of Magadh Capital LLP
                                                 speaks on stocks to invest in FY
-                                                19-20</h2>
+                                                19-20</h3>
                                             <div class="publish-date">22 JANUARY
                                                 2019 | ENGLISH | MONEY &
                                                 FINANCES | GENERAL
@@ -678,18 +741,20 @@
                                                 for FY 19-20. </p>
                                             <a class="button"
                                                 href="https://www.timesnownews.com/videos/et-now/personal-finance-investment/vipul-prasad-of-magadh-capital-llp-speaks-on-stocks-to-invest-in-fy-19-20/21453"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-6"
+                                                aria-labelledby="media-tv-6 watch-video-media-6">Watch video at
                                                 source →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-tv-7"><a
                                                     href="https://www.youtube.com/watch?v=FtIFAwcdFv0"
                                                     target="_blank"></a>Vipul
                                                 Prasad of Magadh Capital speaks
-                                                to ET Now</h2>
+                                                to ET Now</h3>
                                             <div class="publish-date">27
                                                 December 2018 | ENGLISH | MONEY
                                                 & FINANCES | GENERAL
@@ -700,19 +765,21 @@
                                                 & more.</p>
                                             <a class="button"
                                                 href="https://www.youtube.com/watch?v=FtIFAwcdFv0"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-7"
+                                                aria-labelledby="media-tv-7 watch-video-media-7">Watch video at
                                                 source →</a>
                                         </div>
                                     </div>
 
                                     <div class="row spacing-40">
                                         <div class="post-content">
-                                            <h2><a
+                                            <h3 class="h5" id="media-tv-8"><a
                                                     href="https://www.timesnownews.com/videos/news/india/vipul-prasad-of-magadh-capital-llp-speaks-on-the-crude-oil-cool-off/15783"
                                                     target="_blank"></a>Vipul
                                                 Prasad of Magadh Capital LLP
                                                 speaks on the crude oil cool
-                                                off</h2>
+                                                off</h3>
                                             <div class="publish-date">21
                                                 NOVEMBER 2018 | ENGLISH | MONEY
                                                 & FINANCES | GENERAL
@@ -727,7 +794,9 @@
                                                 prices.</p>
                                             <a class="button"
                                                 href="https://www.timesnownews.com/videos/news/india/vipul-prasad-of-magadh-capital-llp-speaks-on-the-crude-oil-cool-off/15783"
-                                                target="_blank">Watch video at
+                                                target="_blank"
+                                                id="watch-video-media-8"
+                                                aria-labelledby="media-tv-8 watch-video-media-8">Watch video at
                                                 source →</a>
                                         </div>
                                     </div>

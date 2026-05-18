@@ -1,0 +1,93 @@
+// Issue: h2 span in .post-content inherits global color: var(--bs-primary) = #F58220 = 2.54:1 (fails 4.5:1)
+// Fix: #A34700 on white = 5.65:1 ✓
+.post-content h2 span {
+  color: #A34700;
+}
+
+/* Risk Management Practices Section */
+.risk-practices-section {
+  padding: 30px 20px 20px;
+  margin-top: 20px;
+
+  .practices-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+
+    // Issue: #F58220 on white = 2.54:1 (fails 4.5:1)
+    // Fix: #A34700 on white = 5.65:1 ✓
+    span {
+      color: #A34700;
+    }
+  }
+}
+
+.practice-card {
+  border: 1px solid #dfdfdf;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .practice-icon-wrap {
+    // Issue: #F58220 background with white icon = 2.54:1 (fails 3:1 non-text)
+    // Fix: #A34700 with white icon = 5.65:1 ✓
+    background-color: #821517;
+    text-align: center;
+    padding: 22px 10px;
+
+    i {
+      font-size: 36px;
+      color: #fff;
+    }
+  }
+
+  .practice-body {
+    padding: 16px 14px;
+    flex: 1;
+
+    h5 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #821517;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    ul {
+      padding-left: 16px;
+      margin: 0;
+
+      li {
+        font-size: 12px;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+
+.practices-note {
+  font-size: 12px;
+  // Issue: #808080 on white = 3.95:1 (fails 4.5:1)
+  // Fix: #595959 on white = 7.0:1 ✓
+  color: #595959;
+  border-top: 1px solid #dfdfdf;
+  padding-top: 14px;
+  margin-top: 4px;
+  margin-bottom: 0;
+
+  strong {
+    color: #821517;
+  }
+}

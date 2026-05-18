@@ -1,0 +1,41 @@
+// Issue: Accordion heading default color #808080 on white = 3.95:1 (fails 4.5:1)
+// Fix: #595959 on white = 7.0:1 ✓
+.panel-heading h4.panel-title a {
+  color: #595959;
+}
+
+// Issue: Accordion heading hover color #F58220 on white = 2.54:1 (fails 4.5:1)
+// Fix: #A34700 on white = 5.65:1 ✓
+.panel-heading h4.panel-title a:hover,
+.panel-heading h4.panel-title a:focus {
+  color: #A34700;
+}
+
+// Issue: Accordion icon color #F58220 on white = 2.54:1 (fails 4.5:1)
+// Fix: #A34700 on white = 5.65:1 ✓
+.panel-heading h4.panel-title i {
+  color: #A34700;
+}
+
+// Issue: Links in FAQ answers inherit global a { color: #36A8FF } = 2.45:1 (fails 4.5:1)
+// Fix: #005FCC on white = 5.56:1 ✓
+.panel-body a {
+  color: #005FCC;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: #003D99; // 8.97:1 on white ✓
+  }
+}
+
+// Issue: Nav-link tab text #808080 on white = 3.95:1 (fails 4.5:1)
+// Fix: #595959 on white = 7.0:1 ✓
+.nav-link {
+  color: #595959;
+
+  &:hover,
+  &:focus {
+    color: #A34700; // 5.65:1 on white ✓
+  }
+}

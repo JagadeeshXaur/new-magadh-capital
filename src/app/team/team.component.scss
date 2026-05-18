@@ -1,0 +1,11 @@
+// Issue: h2 span in .post-content inherits global color: var(--bs-primary) = #F58220 = 2.54:1 (fails 4.5:1)
+// Fix: #A34700 on white = 5.65:1 ✓
+.post-content h2 span {
+  color: #A34700;
+}
+
+// Issue: h4 member name headings inherit global gray #808080 = 3.95:1 (fails 4.5:1)
+// Fix: #595959 on white = 7.0:1 ✓
+.post-content h4 {
+  color: #595959;
+}

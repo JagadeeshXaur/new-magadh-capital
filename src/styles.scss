@@ -1289,7 +1289,8 @@ section.aboutus h4 {
 }
 
 section.aboutus a.btn.btn-default,
-a.btn.btn-default {
+a.btn.btn-default,
+button.btn.btn-default {
   margin-top: 20px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -1306,7 +1307,8 @@ a.btn.btn-default {
 }
 
 section.aboutus a.btn.btn-default:hover,
-a.btn.btn-default:hover {
+a.btn.btn-default:hover,
+button.btn.btn-default:hover {
   background: #ffffff;
   color: #F58220;
   border: 1px solid #F58220;

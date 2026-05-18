@@ -9,13 +9,12 @@ import { TowardsAwarenessComponent } from './towards-awareness/towards-awareness
 import { UPIComponent } from './UPI/UPI.component';
 
 const routes: Routes = [
-  { path: '', component: ResourcesComponent },
-  { path: 'blogs', component: BlogsComponent },
-  { path: 'media', component: MediaComponent },
-  { path: 'newsletters', component: NewslettersComponent },
-  { path: 'towards-awareness', component: TowardsAwarenessComponent },
-   { path: 'UPI', component: UPIComponent },
-
+  { path: '', component: ResourcesComponent, title: 'Resources | Magadh Capital' },
+  { path: 'blogs', component: BlogsComponent, title: 'Our Blogs | Magadh Capital' },
+  { path: 'media', component: MediaComponent, title: 'Media | Magadh Capital' },
+  { path: 'newsletters', component: NewslettersComponent, title: 'Investor Letters | Magadh Capital' },
+  { path: 'towards-awareness', component: TowardsAwarenessComponent, title: 'Towards Awareness | Magadh Capital' },
+  { path: 'UPI', component: UPIComponent, title: 'UPI Payment | Magadh Capital' },
 ];
 
 @NgModule({

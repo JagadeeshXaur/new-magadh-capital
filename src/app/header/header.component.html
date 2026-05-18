@@ -1,6 +1,8 @@
 
 
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
  <div id="hw-hero">
       <div class="header header1">
         <div  [ngClass]="{'f-nav fadeindown': isScrolled}" class="header-navigation">
@@ -14,12 +16,20 @@
                           alt /></a> </div>
                   </div>
                   <div class="col-sm-11">
+                    <button
+                      #hamburgerBtn
+                      type="button"
+                      class="hamburger-menu d-md-none"
+                      aria-label="Open menu"
+                      [attr.aria-expanded]="isMobileMenuOpen"
+                      aria-controls="primary-navigation"
+                      (click)="toggleMobileMenu()">&#9776;</button>
                     <nav id="desktop-menu">
                       <ul class="sf-menu" id="navigation">
-                        <li routerLinkActive="current"  [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
-                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/backbone">The Backbone</a></li>
-                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/difference">Magadh Difference</a></li>
-                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/philosophy">Investment Framework</a>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/" [attr.aria-current]="isActive('/') ? 'page' : null">Home</a></li>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/backbone" [attr.aria-current]="isActive('/backbone') ? 'page' : null">The Backbone</a></li>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/difference" [attr.aria-current]="isActive('/difference') ? 'page' : null">Magadh Difference</a></li>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/philosophy" [attr.aria-current]="isActive('/philosophy') ? 'page' : null">Investment Framework</a>
                           <ul>
                             <li><a routerLink="/philosophy">Investment
                                 Philosophy &amp; Style</a></li>
@@ -29,19 +39,19 @@
                                 Inspiration</a></li>
                           </ul>
                         </li>
-                        <li  routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/risk-management">Risk
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/risk-management" [attr.aria-current]="isActive('/risk-management') ? 'page' : null">Risk
                             Management</a></li>
-                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/team">Our Team</a></li>
-                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/resources">RESOURCES</a>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/team" [attr.aria-current]="isActive('/team') ? 'page' : null">Our Team</a></li>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/resources" [attr.aria-current]="isActive('/resources') ? 'page' : null">RESOURCES</a>
                           <ul>
                             <li><a [routerLink]="['/resources']" fragment="our_blogs">Our Blogs</a></li>
                             <li><a [routerLink]="['/resources']" fragment="Media">Media</a></li>
                             <li><a [routerLink]="['/resources']" fragment="Investor_Letters">Investor Letters</a></li>
                             <li><a [routerLink]="['/resources']" fragment="towards_awareness">Towards Awareness</a></li>
-                                <li><a [routerLink]="['/resources']" fragment="UPI">UPI Payment</a></li>
+                            <li><a [routerLink]="['/resources']" fragment="UPI">UPI Payment</a></li>
                           </ul>
                         </li>
-                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="assistance">Investor Assistance</a>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/assistance" [attr.aria-current]="isActive('/assistance') ? 'page' : null">Investor Assistance</a>
                           <ul>
                             <li><a (click)="loginPage()" style="cursor: pointer;">Login</a></li>
                             <li><a [routerLink]="['/assistance']" fragment="invest">How to invest with us</a></li>
@@ -50,7 +60,7 @@
                             <li><a [routerLink]="['/assistance']" fragment="FAQ">FAQ</a></li>
                           </ul>
                         </li>
-                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="contact-us">Contact</a></li>
+                        <li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/contact-us" [attr.aria-current]="isActive('/contact-us') ? 'page' : null">Contact</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -199,4 +209,48 @@
         </div>
       </div>
       <!-- END OF SLIDER -->
+
+      <!-- Mobile menu backdrop -->
+      <div *ngIf="isMobileMenuOpen"
+           class="mobile-menu-overlay"
+           (click)="closeMobileMenu()"
+           aria-hidden="true"></div>
+
+      <!-- Mobile Navigation Dialog -->
+      <div *ngIf="isMobileMenuOpen"
+           id="primary-navigation"
+           role="dialog"
+           aria-modal="true"
+           aria-labelledby="mobile-menu-title"
+           class="mobile-menu-dialog">
+        <h2 id="mobile-menu-title" class="visually-hidden">Navigation Menu</h2>
+        <button #mobileMenuClose
+                type="button"
+                class="mobile-menu-close-btn"
+                aria-label="Close menu"
+                (click)="closeMobileMenu()">&#x2715;</button>
+        <nav aria-label="Mobile navigation">
+          <ul>
+            <li><a routerLink="/" (click)="closeMobileMenu()">Home</a></li>
+            <li><a routerLink="/backbone" (click)="closeMobileMenu()">The Backbone</a></li>
+            <li><a routerLink="/difference" (click)="closeMobileMenu()">Magadh Difference</a></li>
+            <li><a routerLink="/philosophy" (click)="closeMobileMenu()">Investment Philosophy &amp; Style</a></li>
+            <li><a routerLink="/philosophy" (click)="closeMobileMenu()">Investment Process</a></li>
+            <li><a routerLink="/philosophy" (click)="closeMobileMenu()">Our Inspiration</a></li>
+            <li><a routerLink="/risk-management" (click)="closeMobileMenu()">Risk Management</a></li>
+            <li><a routerLink="/team" (click)="closeMobileMenu()">Our Team</a></li>
+            <li><a [routerLink]="['/resources']" fragment="our_blogs" (click)="closeMobileMenu()">Our Blogs</a></li>
+            <li><a [routerLink]="['/resources']" fragment="Media" (click)="closeMobileMenu()">Media</a></li>
+            <li><a [routerLink]="['/resources']" fragment="Investor_Letters" (click)="closeMobileMenu()">Investor Letters</a></li>
+            <li><a [routerLink]="['/resources']" fragment="towards_awareness" (click)="closeMobileMenu()">Towards Awareness</a></li>
+            <li><a [routerLink]="['/resources']" fragment="UPI" (click)="closeMobileMenu()">UPI Payment</a></li>
+            <li><a (click)="loginPage(); closeMobileMenu()" style="cursor: pointer;">Login</a></li>
+            <li><a [routerLink]="['/assistance']" fragment="invest" (click)="closeMobileMenu()">How to invest with us</a></li>
+            <li><a [routerLink]="['/assistance']" fragment="download" (click)="closeMobileMenu()">Downloads</a></li>
+            <li><a [routerLink]="['/assistance']" fragment="complaints" (click)="closeMobileMenu()">Grievances</a></li>
+            <li><a [routerLink]="['/assistance']" fragment="FAQ" (click)="closeMobileMenu()">FAQ</a></li>
+            <li><a routerLink="/contact-us" (click)="closeMobileMenu()">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>

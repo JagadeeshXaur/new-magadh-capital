@@ -11,113 +11,136 @@
             class="nav nav-tabs"
             id="assistances"
             role="tablist"
+            aria-label="Resources Sections"
+            (keydown)="onTablistKeydown($event)"
             style="position: relative; z-index: 2">
-            <li
-                class="nav-item"
+            <li class="nav-item"
                 role="presentation"
                 [class.active]="activeTab === 'our_blogs'">
                 <a
                     class="nav-link"
-                    id="tab-our_blogs-tab"
-                    data-bs-toggle="tab"
+                    [class.active]="activeTab === 'our_blogs'"
+                    id="res-tab-our-blogs"
                     [routerLink]="[]"
-                    href="#our_blogs"
                     fragment="our_blogs"
                     role="tab"
-                    aria-controls="tab-our_blogs"
-                    aria-selected="false">OUR BLOGS</a>
+                    aria-controls="res-panel-our-blogs"
+                    [attr.aria-selected]="activeTab === 'our_blogs'"
+                    [attr.tabindex]="activeTab === 'our_blogs' ? 0 : -1">OUR BLOGS</a>
             </li>
-            <li
-                class="nav-item"
+            <li class="nav-item"
                 role="presentation"
                 [class.active]="activeTab === 'Media'">
                 <a
                     class="nav-link"
-                    id="tab-Media"
+                    [class.active]="activeTab === 'Media'"
+                    id="res-tab-media"
                     [routerLink]="[]"
-                    data-bs-toggle="tab"
-                    href="#Media"
+                    fragment="Media"
                     role="tab"
-                    aria-controls="tab-Media"
-                    aria-selected="false"
-                    fragment="Media">Media</a>
+                    aria-controls="res-panel-media"
+                    [attr.aria-selected]="activeTab === 'Media'"
+                    [attr.tabindex]="activeTab === 'Media' ? 0 : -1">Media</a>
             </li>
-            <li
-                class="nav-item"
+            <li class="nav-item"
                 role="presentation"
                 [class.active]="activeTab === 'Investor_Letters'">
                 <a
                     class="nav-link"
-                    id="tab-Investor_Letters"
+                    [class.active]="activeTab === 'Investor_Letters'"
+                    id="res-tab-investor-letters"
                     [routerLink]="[]"
-                    data-bs-toggle="tab"
-                    href="#Investor_Letters"
+                    fragment="Investor_Letters"
                     role="tab"
-                    aria-controls="tab-Investor_Letters"
-                    aria-selected="false"
-                    fragment="Investor_Letters">Investor Letters</a>
+                    aria-controls="res-panel-investor-letters"
+                    [attr.aria-selected]="activeTab === 'Investor_Letters'"
+                    [attr.tabindex]="activeTab === 'Investor_Letters' ? 0 : -1">Investor Letters</a>
             </li>
-            <li
-                class="nav-item"
+            <li class="nav-item"
                 role="presentation"
                 [class.active]="activeTab === 'towards_awareness'">
                 <a
                     class="nav-link"
-                    id="tab-towards_awareness"
+                    [class.active]="activeTab === 'towards_awareness'"
+                    id="res-tab-towards-awareness"
                     [routerLink]="[]"
-                    data-bs-toggle="tab"
-                    href="#towards_awareness"
+                    fragment="towards_awareness"
                     role="tab"
-                    aria-controls="tab-towards_awareness"
-                    aria-selected="false"
-                    fragment="towards_awareness">Towards Awareness</a>
+                    aria-controls="res-panel-towards-awareness"
+                    [attr.aria-selected]="activeTab === 'towards_awareness'"
+                    [attr.tabindex]="activeTab === 'towards_awareness' ? 0 : -1">Towards Awareness</a>
             </li>
-                <li
-                class="nav-item"
+            <li class="nav-item"
                 role="presentation"
                 [class.active]="activeTab === 'UPI'">
                 <a
                     class="nav-link"
-                    id="tab-UPI"
+                    [class.active]="activeTab === 'UPI'"
+                    id="res-tab-upi"
                     [routerLink]="[]"
-                    data-bs-toggle="tab"
-                    href="#UPI"
+                    fragment="UPI"
                     role="tab"
-                    aria-controls="tab-UPI"
-                    aria-selected="false"
-                    fragment="UPI">UPI Payment</a>
+                    aria-controls="res-panel-upi"
+                    [attr.aria-selected]="activeTab === 'UPI'"
+                    [attr.tabindex]="activeTab === 'UPI' ? 0 : -1">UPI Payment</a>
             </li>
         </ul>
 
         <div class="tab-content">
-                 <app-blogs
-                    *ngIf="activeTab === 'our_blogs'"
-                    [class.active]="activeTab === 'our_blogs'"
-                    [class.show]="activeTab === 'our_blogs'"></app-blogs>
- 
-            <app-media
-                *ngIf="activeTab === 'Media'"
+            <div
+                class="tab-pane"
+                [class.active]="activeTab === 'our_blogs'"
+                id="res-panel-our-blogs"
+                role="tabpanel"
+                aria-labelledby="res-tab-our-blogs"
+                tabindex="0"
+                [hidden]="activeTab !== 'our_blogs'">
+                <app-blogs></app-blogs>
+            </div>
+
+            <div
+                class="tab-pane"
                 [class.active]="activeTab === 'Media'"
-                [class.show]="activeTab === 'Media'"></app-media>
-                
-<app-newsletters  *ngIf="activeTab === 'Investor_Letters'"
-                    [class.active]="activeTab === 'Investor_Letters'"
-                    [class.show]="activeTab === 'Investor_Letters'">
-
-
-</app-newsletters>
-
-
-                <app-towards-awareness
-                    *ngIf="activeTab === 'towards_awareness'"
-                    [class.active]="activeTab === 'towards_awareness'"
-                    [class.show]="activeTab === 'towards_awareness'"></app-towards-awareness>
-                <app-upi
-                    *ngIf="activeTab === 'UPI'"
-                    [class.active]="activeTab === 'UPI'"
-                    [class.show]="activeTab === 'UPI'"></app-upi>
-
+                id="res-panel-media"
+                role="tabpanel"
+                aria-labelledby="res-tab-media"
+                tabindex="0"
+                [hidden]="activeTab !== 'Media'">
+                <app-media></app-media>
             </div>
+
+            <div
+                class="tab-pane"
+                [class.active]="activeTab === 'Investor_Letters'"
+                id="res-panel-investor-letters"
+                role="tabpanel"
+                aria-labelledby="res-tab-investor-letters"
+                tabindex="0"
+                [hidden]="activeTab !== 'Investor_Letters'">
+                <app-newsletters></app-newsletters>
             </div>
+
+            <div
+                class="tab-pane"
+                [class.active]="activeTab === 'towards_awareness'"
+                id="res-panel-towards-awareness"
+                role="tabpanel"
+                aria-labelledby="res-tab-towards-awareness"
+                tabindex="0"
+                [hidden]="activeTab !== 'towards_awareness'">
+                <app-towards-awareness></app-towards-awareness>
             </div>
-            
+
+            <div
+                class="tab-pane"
+                [class.active]="activeTab === 'UPI'"
+                id="res-panel-upi"
+                role="tabpanel"
+                aria-labelledby="res-tab-upi"
+                tabindex="0"
+                [hidden]="activeTab !== 'UPI'">
+                <app-upi></app-upi>
+            </div>
+        </div>
+    </div>
+</div>

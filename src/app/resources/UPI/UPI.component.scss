@@ -1,0 +1,6 @@
+// Issue 52: Fix h2 span color contrast in UPI section
+// Global .post-content h2 span { color: var(--bs-primary) } = #F58220 on white = 2.54:1 (fails 4.5:1)
+// #A34700 on white = 5.65:1 ✓
+h2 span {
+  color: #A34700;
+}

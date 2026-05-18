@@ -1,26 +1,109 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Magadh Capital</title>
+
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="assets/images/magadh-capital-logo-revised-v02.png">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css" integrity="sha512-RibaM8rs5cOvzf+pDw9BOiH4dy+VTOxxzfwONMkOOd/lFbKWcirhXkWcSd0S6GPwfQRT4OrjT8iAKVC5iIvMRA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-<link rel="stylesheet" href="assets/css/typicons.min.css">
 
+  <!-- Content Security Policy -->
+
+<meta http-equiv="Content-Security-Policy"
+content="
+default-src 'self';
+
+style-src 'self' 'unsafe-inline'
+https://fonts.googleapis.com
+https://css.zohocdn.com
+https://static.zohocdn.com;
+
+script-src 'self' 'unsafe-inline' 'unsafe-eval'
+https://js.zohostatic.com
+https://js.zohocdn.com
+https://salesiq.zohopublic.com
+https://static.zohocdn.com;
+
+connect-src 'self'
+https://www.google-analytics.com
+https://salesiq.zohopublic.com
+https://css.zohostatic.com
+https://js.zohostatic.com
+https://vts.zohopublic.com
+http://vts.zohopublic.com
+https://css.zohocdn.com
+https://js.zohocdn.com
+https://static.zohocdn.com
+wss://vts.zohopublic.com
+ws://vts.zohopublic.com;
+
+img-src 'self'
+data:
+blob:
+https:
+http:;
+
+font-src 'self'
+data:
+blob:
+https://fonts.gstatic.com
+https://static.zohocdn.com
+https://css.zohocdn.com;
+
+frame-src 'self'
+https://salesiq.zohopublic.com
+https://www.google.com;
+
+child-src 'self'
+https://www.google.com;
+">
+
+
+
+
+  <!-- Favicon -->
+  <link rel="icon"
+        type="image/png"
+        href="assets/images/magadh-capital-logo-revised-v02.png">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="assets/css/typicons.min.css">
 
 </head>
+
 <body>
+
   <app-root></app-root>
-  
-    <script type="text/javascript" id="zsiqchat">
-    var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq ||
-     {widgetcode: "siqb8f0743a1ed457f95314d370d0c48cf821afd1d992ab385d73b04467b194c686",
-      values:{},ready:function(){}};
-      var d=document;s=d.createElement("script");
-      s.type="text/javascript";s.id="zsiqscript";
-      s.defer=true;s.src="https://salesiq.zohopublic.com/widget";
-      t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+
+  <!-- Zoho SalesIQ -->
+  <script type="text/javascript" id="zsiqchat">
+
+    var $zoho = $zoho || {};
+
+    $zoho.salesiq = $zoho.salesiq || {
+      widgetcode:
+        "siqb8f0743a1ed457f95314d370d0c48cf821afd1d992ab385d73b04467b194c686",
+      values: {},
+      ready: function () { }
+    };
+
+    var d = document;
+    var s = d.createElement("script");
+
+    s.type = "text/javascript";
+    s.id = "zsiqscript";
+    s.defer = true;
+    s.src = "https://salesiq.zohopublic.com/widget";
+
+    var t = d.getElementsByTagName("script")[0];
+    t.parentNode.insertBefore(s, t);
+
+  </script>
+
 </body>
+
 </html>
+

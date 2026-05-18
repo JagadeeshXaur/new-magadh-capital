@@ -1,0 +1,11 @@
+// Issue 66: Tab focus indicator contrast
+// Bootstrap's default focus ring uses the site's primary orange (~#F27E18 effective) on white = 2.56:1 (fails 3:1)
+// Global a:focus { outline: 0 } also strips all outlines from links.
+// Fix: restore a solid outline using #A34700 on white = 5.65:1 ✓
+
+.nav-link:focus,
+.nav-link:focus-visible {
+  outline: 3px solid #A34700 !important;
+  outline-offset: 2px;
+  box-shadow: none !important;  // remove low-contrast Bootstrap shadow-based focus ring
+}

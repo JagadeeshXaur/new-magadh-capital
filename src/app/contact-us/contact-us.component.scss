@@ -1,0 +1,20 @@
+// WCAG AA: fix link color contrast in the contact page
+// Global a { color: #36A8FF } on white = 2.45:1 (fails 4.5:1)
+// #005FCC on white = 5.56:1 ✓
+a {
+  color: #005FCC;
+  text-decoration: underline; // visible by default so users know the address is a link
+
+  &:hover,
+  &:focus {
+    color: #003D99; // 8.97:1 on white ✓
+    text-decoration: underline;
+  }
+}
+
+// WCAG AA: fix h4 heading contrast in the contact section
+// Global .about1-numbers h4 { color: #808080 } on white = 3.95:1 (fails 4.5:1)
+// #595959 on white = 6.33:1 ✓
+.about1-numbers h4 {
+  color: #595959;
+}

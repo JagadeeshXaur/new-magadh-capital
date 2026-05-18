@@ -1,4 +1,6 @@
 
+<h1 class="visually-hidden">Magadh Capital – Portfolio Management Services</h1>
+
 <div id="hw-hero">
 	<div class="header header1">
 		<div class="slider-pro" id="index-slider">
@@ -137,28 +139,68 @@
 	</div>
 </div>
 
-<div id="homeCarousel" class="carousel slide slider-pro" data-bs-ride="carousel"
-	data-bs-interval="6000" data-bs-pause="false" data-bs-wrap="true"
-	data-bs-touch="true">
-	<div class="carousel-indicators sp-slides">
-		<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0"
-			class="active sp-slide" aria-current="true" aria-label="Slide 1"></button>
-		<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"
-			class="sp-slide" aria-label="Slide 2"></button>
-		<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"
-			class="sp-slide" aria-label="Slide 3"></button>
-		<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="3"
-			class="sp-slide" aria-label="Slide 4"></button>
-		<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="4"
-			class="sp-slide" aria-label="Slide 5"></button>
-		<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="5"
-			class="sp-slide" aria-label="Slide 6"></button>
+<!-- Screen reader instructions -->
+<p id="carouselInstructions" class="visually-hidden">
+  This is an auto-rotating image carousel with 6 slides. Use the Pause button to stop rotation, the Play button to resume, or the Stop button to disable auto-rotation entirely. Use the slide indicators to navigate between slides.
+</p>
+
+<div id="homeCarousel" class="carousel slide slider-pro"
+	role="region"
+	aria-label="Carousel"
+	aria-describedby="carouselInstructions"
+	[attr.aria-live]="isPlaying ? 'off' : 'polite'"
+	(mouseenter)="onCarouselMouseEnter()"
+	(mouseleave)="onCarouselMouseLeave()">
+
+	<!-- Carousel playback controls -->
+	<div class="carousel-playback-controls" role="group" aria-label="Carousel playback controls">
+		<button type="button"
+			(click)="toggleCarousel()"
+			[attr.aria-label]="isPlaying ? 'Pause carousel' : 'Start carousel'"
+			[attr.aria-pressed]="!isPlaying"
+			[disabled]="isStopped"
+			class="carousel-ctrl-btn">
+			<i [class]="isPlaying ? 'fa fa-pause' : 'fa fa-play'" aria-hidden="true"></i>
+		</button>
+		<button type="button"
+			(click)="stopCarousel()"
+			aria-label="Hide carousel"
+			[disabled]="isStopped"
+			class="carousel-ctrl-btn">
+			<i class="fa fa-eye-slash" aria-hidden="true"></i>
+		</button>
 	</div>
 
-	<div class="carousel-inner">
+	<ol class="carousel-indicators" style="list-style: none;">
+		<li>
+			<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0"
+				class="active" aria-current="true" aria-label="Slide 1"></button>
+		</li>
+		<li>
+			<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"
+				aria-label="Slide 2"></button>
+		</li>
+		<li>
+			<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"
+				aria-label="Slide 3"></button>
+		</li>
+		<li>
+			<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="3"
+				aria-label="Slide 4"></button>
+		</li>
+		<li>
+			<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="4"
+				aria-label="Slide 5"></button>
+		</li>
+		<li>
+			<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="5"
+				aria-label="Slide 6"></button>
+		</li>
+	</ol>
+
+	<div class="carousel-inner" role="status" aria-atomic="true">
 		<div class="carousel-item active">
-			<img src="assets/img/1_home.jpg" class="d-block w-100"
-				alt="Helping Our Investors Meet Their Wealth Objectives">
+			<img src="assets/img/1_home.jpg" class="d-block w-100" alt="">
 			<div class="carousel-caption text-center">
 				<h2>Helping Our Investors Meet Their Wealth Objectives</h2>
 				<p style="text-align:center;">Magadh Capital is a Mumbai
@@ -167,8 +209,7 @@
 		</div>
 
 		<div class="carousel-item">
-			<img src="assets/images/slide_backbone.jpg" class="d-block w-100"
-				alt="The Non-negotiables">
+			<img src="assets/images/slide_backbone.jpg" class="d-block w-100" alt="">
 			<div class="carousel-caption text-center">
 				<h2 class>The Non-negotiables</h2>
 				<p>Integrity, Knowledge, Simplicity</p>
@@ -176,8 +217,7 @@
 		</div>
 
 		<div class="carousel-item">
-			<img src="assets/images/inner_difference.jpg" class="d-block w-100"
-				alt="Our Conventional Style Makes Us Different">
+			<img src="assets/images/inner_difference.jpg" class="d-block w-100" alt="">
 			<div class="carousel-caption text-center">
 				<h2>Our Conventional Style Makes Us Different</h2>
 				<p>Old school investment style
@@ -188,8 +228,7 @@
 		</div>
 
 		<div class="carousel-item">
-			<img src="assets/images/invest_philosophy.jpg" class="d-block w-100"
-				alt="Alignment in Investment Philosophy and Life Philosophy">
+			<img src="assets/images/invest_philosophy.jpg" class="d-block w-100" alt="">
 			<div class="carousel-caption text-center">
 				<h2>Alignment in Investment Philosophy and Life Philosophy</h2>
 				<p>Application of a mix of top
@@ -201,8 +240,7 @@
 		</div>
 
 		<div class="carousel-item">
-			<img src="assets/img/home_tree.jpg" class="d-block w-100"
-				alt="Standing on The Giants Shoulders">
+			<img src="assets/img/home_tree.jpg" class="d-block w-100" alt="">
 			<div class="carousel-caption text-center">
 				<h2>Standing on The Giant's Shoulders</h2>
 				<p>Our investing style draws
@@ -215,8 +253,7 @@
 		</div>
 
 		<div class="carousel-item">
-			<img src="assets/images/slide_risk.jpg" class="d-block w-100"
-				alt="Awareness of Pitfalls">
+			<img src="assets/images/slide_risk.jpg" class="d-block w-100" alt="">
 			<div class="carousel-caption text-center">
 				<h2>Awareness of Pitfalls</h2>
 				<p>In keeping with our view
@@ -297,7 +334,7 @@
 			<section class="mb-2">
 				<div style="  font-size: 17px">
 					<p class=" " style="font-size: 17px"><span
-							style="font-size:20px;"><font color="#F58220">"Magadh</font>
+							style="font-size:20px;"><font color="#A85400">"Magadh</font>
 							<font color="#821517" class="ms-1">Capital</font></span> keeps our
 						investors’ interests at the centre of everything that we do.</p>
 					<p style="font-size: 17px; text-align:justify">The PMS invests in Indian
@@ -373,8 +410,8 @@
 					<b>c) Simplicity -</b> is what the fund practices, and adheres to during
 					stock selection, and portfolio management - or for that matter, in
 					everything that it does.</p>
-				<!-- <a class="btn btn-default" routerLink="/backbone" role="button">Read more</a> -->
-				<a type="button" class="btn btn-default">Read more</a>
+				<a class="btn btn-default" routerLink="/backbone" role="button">Read more</a>
+				<!-- <a type="button" class="btn btn-default">Read more</a> -->
 			</div>
 			<div class="col-sm-4 col-md-6"></div>
 		</div>
@@ -399,6 +436,7 @@
 					<li>Dovetailing of deep quantitative work with plausible narratives</li>
 					<li>Mix of top down and bottom up approach</li>
 				</ul>
+				<a type="button" class="btn btn-default" [routerLink]="['/difference']" routerLinkActive="router-link-active" >Read more</a>
 			</div>
 			<div class="col-sm-4 col-md-6"></div>
 		</div>
@@ -432,7 +470,7 @@
 						the core of our valuation exercise though we do apply other methods
 						too.</p>
 				</div>
-				<a type="button" class="btn btn-default">Read more</a>
+				<a type="button" class="btn btn-default" [routerLink]="['/philosophy']" routerLinkActive="router-link-active" >Read more</a>
 			</div>
 		</div>
 	</div>
@@ -465,7 +503,7 @@
 						long term opportunities.
 					</p>
 				</div>
-				<a type="button" class="btn btn-default">Read more</a>
+				<a type="button" class="btn btn-default" [routerLink]="['/risk-management']" routerLinkActive="router-link-active" >Read more</a>
 			</div>
 		</div>
 	</div>
@@ -476,10 +514,16 @@
 	<div class="row">
 		<h2 class="text-center"><span class="text-primary">DISCLAIMER</span></h2>
 		<div class="col-sm-12">
-			<div class="row mb-3">
-				<div class="col-6 text-start">PMS Registration: INP000007155</div>
-				<div class="col-6 text-end">AIF Registration: IN/AIF3/16-17/0279</div>
-			</div>
+			<dl class="row mb-3" style="margin: 0;">
+				<div class="col-6 text-start" style="padding: 0;">
+					<dt style="display: inline; font-weight: normal;">PMS Registration:</dt>
+					<dd style="display: inline; margin: 0;"> INP000007155</dd>
+				</div>
+				<div class="col-6 text-end" style="padding: 0;">
+					<dt style="display: inline; font-weight: normal;">AIF Registration:</dt>
+					<dd style="display: inline; margin: 0;"> IN/AIF3/16-17/0279</dd>
+				</div>
+			</dl>
 		</div>
 		<div class="col-sm-12 mb-4">
 			<p class="mb-2">Investor complaint during the last month</p>
@@ -513,8 +557,8 @@
 				available on this website serves as the receipt of, or a substitute for,
 				personalized communication which can only be provided through formal
 				channels of communication. </p>
-			<div class="text-center pb-4"><a class="btn btn-default"
-					routerLink="/disclaimer" role="button">Read more</a></div>
+			<!-- <div class="text-center pb-4"><a class="btn btn-default"
+					routerLink="/disclaimer" role="button">Read more</a></div> -->
 		</div>
 	</div>
 </section>
@@ -524,7 +568,8 @@
 	<div class="footer-widgets1">
 		<div class="row1">
 			<iframe
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7545.124525617597!2d72.8306556!3d18.99493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cef3836311c1%3A0x8cfa9225e0aa9bca!2sMarathon%20Futurex!5e0!3m2!1sen!2sin!4v1748877981979!5m2!1sen!2sin"
+				title="Magadh Capital office location map"
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.4151398128934!2d72.82715407580491!3d19.001420054308408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ceed6b5da307%3A0xeacd5963b022e2fc!2sMagadh%20Capital!5e0!3m2!1sen!2sin!4v1779076827071!5m2!1sen!2sin"
 				width="100%" height="350" style="border:0;" allowfullscreen></iframe>
 		</div>
 	</div>

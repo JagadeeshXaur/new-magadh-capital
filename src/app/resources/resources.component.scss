@@ -1,0 +1,32 @@
+/* Tab panel heading spacing */
+.tab-content .post-content h3,
+.tab-content .post-content h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.375rem;
+}
+
+// Issue 57b / 34: Inactive tab text contrast
+// Global .normaltabs...>li>a { color: #808080 } on white = 3.95:1 (fails 4.5:1)
+// #595959 on white = 7.0:1 ✓
+.nav-link {
+  color: #595959;
+}
+
+// Issue 34: Active and hover tab text
+// Global active/hover uses var(--bs-primary) = #F58220 = 2.54:1 (fails 4.5:1)
+// #A34700 on white = 5.65:1 ✓
+.nav-link.active,
+.nav-link:hover,
+.nav-link:focus {
+  color: #A34700;
+}
+
+// Issue 33: Focus indicator contrast
+// Bootstrap default box-shadow focus ring with semi-transparent orange fails 3:1
+// Solid #A34700 outline = 5.65:1 ✓
+.nav-link:focus,
+.nav-link:focus-visible {
+  outline: 3px solid #A34700;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}

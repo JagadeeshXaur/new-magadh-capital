@@ -1,0 +1,38 @@
+// Issue 67: Submit button contrast
+// Global button.btn.btn-default: background #F58220, color #fff — white on #F58220 = 2.54:1 (fails 4.5:1)
+// #A34700 on white = 5.65:1 ✓; white on #A34700 = 5.65:1 ✓
+#submitBtn {
+  background: #A34700 !important;
+  color: #ffffff !important;
+  border: 1px solid #A34700 !important;
+
+  &:hover,
+  &:focus {
+    // #7A3200 on white = 9.21:1 ✓
+    background: #7A3200 !important;
+    color: #ffffff !important;
+    border-color: #7A3200 !important;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #A34700;
+    outline-offset: 2px;
+  }
+}
+
+// Issue 67: Form label (table cell) contrast
+// Inherits body { color: #808080 } on white = 3.95:1 (fails 4.5:1)
+// #595959 on white = 7.0:1 ✓
+td {
+  color: #595959;
+}
+
+// Issue 68: Form control focus state
+// Give inputs a visible, accessible focus indicator
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border: 2px solid #A34700 !important;
+  box-shadow: 0 0 0 3px rgba(163, 71, 0, 0.15);
+}

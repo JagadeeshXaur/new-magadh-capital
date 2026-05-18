@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { Modal } from 'bootstrap';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 declare const bootstrap: any;
 
 @Component({
@@ -9,27 +8,52 @@ declare const bootstrap: any;
 })
 export class HomeComponent implements AfterViewInit {
 
-  @ViewChild('exampleModal') modalElement!: ElementRef;
-  private modal!: Modal;
+  private carouselInstance: any;
+  isPlaying = true;
+  isStopped = false;
+
   ngAfterViewInit(): void {
     const element = document.getElementById('homeCarousel');
     if (element) {
-      const instance = bootstrap.Carousel.getOrCreateInstance(element, {
+      this.carouselInstance = new bootstrap.Carousel(element, {
         interval: 6000,
         pause: false,
-        ride: 'carousel',
+        ride: false,
         touch: true,
         wrap: true
       });
-      instance.cycle();
-    }    
-    // if (sessionStorage.getItem('hideModal') !== 'true') {
-    // this.modal = new Modal(this.modalElement.nativeElement, {
-    //   backdrop: 'static', // optional
-    //   keyboard: true
-    // });
-    // this.modal.show();
-    // }
+      this.carouselInstance.cycle();
+    }
+  }
+
+  onCarouselMouseEnter(): void {
+    if (this.isPlaying && !this.isStopped) {
+      this.carouselInstance?.pause();
+    }
+  }
+
+  onCarouselMouseLeave(): void {
+    if (this.isPlaying && !this.isStopped) {
+      this.carouselInstance?.cycle();
+    }
+  }
+
+  toggleCarousel(): void {
+    if (this.isStopped) return;
+    if (this.isPlaying) {
+      this.carouselInstance?.pause();
+      this.isPlaying = false;
+    } else {
+      this.carouselInstance?.cycle();
+      this.isPlaying = true;
+    }
+  }
+
+  stopCarousel(): void {
+    this.carouselInstance?.pause();
+    this.carouselInstance?.dispose();
+    this.isPlaying = false;
+    this.isStopped = true;
   }
 
   isScrollTopVisible = false;
@@ -40,14 +64,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   scrollToTop(event: Event): void {
-    event.preventDefault(); // prevents anchor jump
+    event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  // closeModal() {
-  //   this.modal.hide();
-  //   sessionStorage.setItem('hideModal', 'true');
-  // }
-  // ngOnDestroy(): void {
-  //   this.closeModal();
-  // }
 }
